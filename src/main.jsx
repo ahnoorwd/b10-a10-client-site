@@ -12,6 +12,8 @@ import Home from './Components/Home/Home.jsx';
 import Allequipment from './Components/AllSportsequpment/Allequipment.jsx';
 import Addequipment from './Components/Addequipment/Addequipment.jsx';
 import Myequipment from './Components/Myequipment/Myequipment.jsx';
+import Allcurrentpro from './Components/Allcurrentproduct/Allcurrentpro.jsx';
+import Details from './Components/viewdetails/Details.jsx';
 
 const router = createBrowserRouter([
   {
@@ -20,7 +22,8 @@ const router = createBrowserRouter([
     children:[
           {
             path:'/',
-            element:<Home></Home>
+            element:<Home></Home>,
+            loader:()=>fetch("/Product.json")
           },
           {
             path:'/allequipment',
@@ -33,6 +36,23 @@ const router = createBrowserRouter([
           {
             path:'/myequipment',
             element:<Myequipment></Myequipment>
+          },
+          {
+            path:'/allcurrentproduct',
+            element:<Allcurrentpro></Allcurrentpro>,
+            loader:()=>fetch("/Product.json")
+
+          },
+          {
+            path:'/details/:id',
+            element:<Details></Details>,
+            loader:async({params})=>{
+            const res= await fetch("/Product.json")
+            const data =await res.json();
+           // console.log(data,params.id);
+           const singleproduct = data.find(d=>d.id==params.id)
+            return singleproduct
+            }
           }
     ]
   },
