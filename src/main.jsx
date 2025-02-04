@@ -14,6 +14,7 @@ import Addequipment from './Components/Addequipment/Addequipment.jsx';
 import Myequipment from './Components/Myequipment/Myequipment.jsx';
 import Allcurrentpro from './Components/Allcurrentproduct/Allcurrentpro.jsx';
 import Details from './Components/viewdetails/Details.jsx';
+import Tabledetails from './Components/viewdetails/Tabledetails.jsx';
 
 const router = createBrowserRouter([
   {
@@ -25,10 +26,29 @@ const router = createBrowserRouter([
             element:<Home></Home>,
             loader:()=>fetch("/Product.json")
           },
+          // {
+          //   path:'/allequipment',
+          //   element:<Allequipment></Allequipment>
+          // },
+
           {
             path:'/allequipment',
-            element:<Allequipment></Allequipment>
+            element:<Allequipment></Allequipment>,
+            loader:()=>fetch("/allequipement.JSON")
           },
+
+         {
+        path:'/tabledetails/:id',
+        element:<Tabledetails></Tabledetails>,
+        loader: async({params})=>{
+          const res = await fetch("/allequipement.JSON")
+          const data = await res.json();
+          const singlequipment = data.find(d=>d.id==params.id)
+          return singlequipment;
+        }
+         },
+
+
           {
             path:'/addequipment',
             element:<Addequipment></Addequipment>

@@ -1,11 +1,34 @@
-import React from 'react';
+// import React from 'react';
+
+// const Allequipment = () => {
+//     return (
+//         <div>
+//            <h1>all equipmet page it;s</h1> 
+//         </div>
+//     );
+// };
+// export default Allequipment;
+
+
+import React from "react";
+import { useLoaderData } from "react-router-dom";
+import Allequipmentcard from "../Allequipmentcard";
+
 
 const Allequipment = () => {
-    return (
-        <div>
-           <h1>all equipmet page it;s</h1> 
-        </div>
-    );
+     const allequipmentdata = useLoaderData();
+     console.log(allequipmentdata);
+  return (
+   
+
+    <div>
+            <h1 className="text-3xl font-bold text-red-500 text-center mt-4">These Product Are currently  Avaliable {allequipmentdata.length} </h1>
+          {
+            allequipmentdata.map(eqipment=><Allequipmentcard eqipment={eqipment}></Allequipmentcard>)
+          }
+    </div>
+    
+  );
 };
 
 export default Allequipment;
