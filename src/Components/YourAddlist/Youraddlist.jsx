@@ -70,13 +70,15 @@ const Youraddlist = ({equipment}) => {
             <Link to={`/updatepage/${_id}`}>
             <button className="btn btn-primary flex items-center gap-2">
               <FaEdit />
-              Update
+              Update info
             </button>
             </Link>
+            <Link to={`/viewyouraddlist/${_id}`}>
             <button className="btn bg-pink-500 text-white flex items-center gap-2">
               <FaEye />
-              View
+              View-Details
             </button>
+            </Link>
             <button onClick={()=>handledelete(_id)}
              className="btn bg-red-500 text-white flex items-center gap-2">
               <FaTrash />

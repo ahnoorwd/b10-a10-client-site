@@ -48,7 +48,7 @@ const Addequipment = () => {
     return (
         <div className="flex justify-center items-center min-h-screen bg-gray-100">
         <div className="bg-gradient-to-r from-purple-500 to-pink-500 p-8 rounded-lg shadow-lg w-full max-w-3xl">
-          <h2 className="text-white text-2xl font-bold text-center">Add New Coffee</h2>
+          <h2 className="text-white text-2xl font-bold text-center">Add New Equipment</h2>
           <p className="text-white text-center mb-6">
             Fill in the details below to add a new coffee to the list.
           </p>
@@ -83,11 +83,11 @@ const Addequipment = () => {
               <input type="text" name='PhotoURL' placeholder="Enter photo URL" className="input input-bordered w-full" />
             </div>
             <div className="md:col-span-2 flex justify-center">
-              <button className="btn bg-purple-700 text-white w-full">Add Coffee</button>
+              <button className="btn bg-purple-700 text-white w-full">Add Equipment</button>
             </div>
           </form>
         </div>
-      </div>
+         </div>
     );
 };
 

@@ -16,6 +16,7 @@ import Allcurrentpro from './Components/Allcurrentproduct/Allcurrentpro.jsx';
 import Details from './Components/viewdetails/Details.jsx';
 import Tabledetails from './Components/viewdetails/Tabledetails.jsx';
 import Updatepage from './Components/updatepage/Updatepage.jsx';
+import ViewurAdded from './Components/viewyouradded/ViewurAdded.jsx';
 
 const router = createBrowserRouter([
   {
@@ -75,6 +76,11 @@ const router = createBrowserRouter([
             element:<Updatepage></Updatepage>,
             loader: ({params}) => fetch(`http://localhost:5000/addequipment/${params.id}`)
 
+          },
+          {
+            path:'/viewyouraddlist/:id',
+            element:<ViewurAdded></ViewurAdded>,
+            loader: ({params}) => fetch(`http://localhost:5000/addequipment/${params.id}`)
           },
           {
             path:'/details/:id',
