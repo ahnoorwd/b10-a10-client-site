@@ -15,6 +15,7 @@ import Myequipment from './Components/Myequipment/Myequipment.jsx';
 import Allcurrentpro from './Components/Allcurrentproduct/Allcurrentpro.jsx';
 import Details from './Components/viewdetails/Details.jsx';
 import Tabledetails from './Components/viewdetails/Tabledetails.jsx';
+import Updatepage from './Components/updatepage/Updatepage.jsx';
 
 const router = createBrowserRouter([
   {
@@ -52,15 +53,27 @@ const router = createBrowserRouter([
           {
             path:'/addequipment',
             element:<Addequipment></Addequipment>
+
           },
           {
             path:'/myequipment',
-            element:<Myequipment></Myequipment>
+            element:<Myequipment></Myequipment>,
+            loader:()=> fetch('http://localhost:5000/addequipment')
+
           },
           {
             path:'/allcurrentproduct',
             element:<Allcurrentpro></Allcurrentpro>,
             loader:()=>fetch("/Product.json")
+
+          },
+          {
+            // path:'/updatepage/:id',
+            // element:<Updatepage></Updatepage>,
+            // loader: ({params}) => fetch(`http://localhost:5000/addequipment/${params.id}`)
+            path:'/updatepage/:id',
+            element:<Updatepage></Updatepage>,
+            loader: ({params}) => fetch(`http://localhost:5000/addequipment/${params.id}`)
 
           },
           {

@@ -31,6 +31,8 @@ const Category = () => {
         </p>
       </div>
     </div>
+    
+
     );
 };
 
