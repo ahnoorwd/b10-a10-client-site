@@ -20,6 +20,7 @@ import ViewurAdded from './Components/viewyouradded/ViewurAdded.jsx';
 import SignInpage from './Components/signinpage/SignInpage.jsx';
 import Signup from './Components/signup/Signup.jsx';
 import Authprovider from './Provider/Authprovider.jsx';
+import Privateroute from './Components/privateroute/Privateroute.jsx';
 
 const router = createBrowserRouter([
   {
@@ -44,7 +45,7 @@ const router = createBrowserRouter([
 
          {
         path:'/tabledetails/:id',
-        element:<Tabledetails></Tabledetails>,
+        element:<Privateroute><Tabledetails></Tabledetails></Privateroute>,
         loader: async({params})=>{
           const res = await fetch("/allequipement.JSON")
           const data = await res.json();

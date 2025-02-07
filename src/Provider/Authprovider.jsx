@@ -47,7 +47,7 @@ const Authprovider = ({children}) => {
    else{
     setuser(null)
    }
-
+   setloading(null);
 
     return ()=>{
         unsubscrive()
