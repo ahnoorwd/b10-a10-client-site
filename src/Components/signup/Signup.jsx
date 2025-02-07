@@ -50,24 +50,39 @@
 // export default Signup;
 
 
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import { AuthContext } from "../../Provider/Authprovider";
 
 const Signup = () => {
-    
-    const {CreateUser} = useContext(AuthContext)
+    const [error,seterror] = useState("")
+    const {CreateUser,updateprofile} = useContext(AuthContext)
 
     const handlesignup = e =>{
         e.preventDefault();
+        seterror("")
        const name = e.target.name.value;
        const email = e.target.email.value;
        const password = e.target.password.value;
        const photourl = e.target.photourl.value;
        const userinformation = {name,email,password,photourl}
        console.log(userinformation);
+
+      if (!/[a-z]/.test(password)){
+            seterror("Password must be atleast one lowercase ");
+            return ;
+      }
+      if (!/[A-Z]/.test(password)){
+            seterror("Password must be atleast one uppercase ");
+            return ;
+      }
+      if (password.length<6){
+            seterror("Password must contain atleast 6 characters");
+            return ;
+      }
       
        CreateUser(email,password)
        .then(result=>{
+        updateprofile(name,photourl)
         console.log(result.user);
         const newUser = {email,name}
         //save new info from database 
@@ -134,6 +149,7 @@ const Signup = () => {
               </button>
             </div>
           </form>
+          {error&&<p className="text-red-500 font-bold text-center">{error}</p>}
         </div>
       </div>
     </div>
