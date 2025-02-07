@@ -17,6 +17,9 @@ import Details from './Components/viewdetails/Details.jsx';
 import Tabledetails from './Components/viewdetails/Tabledetails.jsx';
 import Updatepage from './Components/updatepage/Updatepage.jsx';
 import ViewurAdded from './Components/viewyouradded/ViewurAdded.jsx';
+import SignInpage from './Components/signinpage/SignInpage.jsx';
+import Signup from './Components/signup/Signup.jsx';
+import Authprovider from './Provider/Authprovider.jsx';
 
 const router = createBrowserRouter([
   {
@@ -83,6 +86,14 @@ const router = createBrowserRouter([
             loader: ({params}) => fetch(`http://localhost:5000/addequipment/${params.id}`)
           },
           {
+            path:'/signin',
+            element:<SignInpage></SignInpage>
+          },
+          {
+            path:'/signup',
+            element:<Signup></Signup>
+          },
+          {
             path:'/details/:id',
             element:<Details></Details>,
             loader:async({params})=>{
@@ -99,6 +110,6 @@ const router = createBrowserRouter([
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
-  <RouterProvider router={router} />
+  <Authprovider><RouterProvider router={router} /></Authprovider>
   </StrictMode>,
 )

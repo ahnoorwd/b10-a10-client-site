@@ -19,8 +19,8 @@ const Navbar = () => {
                 <NavLink to='/myequipment'>My Equipment</NavLink>
             </div>
             <div >
-                <button className='btn btn-primary'>Register</button>
-                <button className='btn btn-primary ml-6'>Login</button>
+                <NavLink to='/signup'><button className='btn btn-primary'>Register</button></NavLink>
+                <NavLink to='/signin'><button className='btn btn-primary ml-6'>Login</button></NavLink>
             </div>
         </div>
     );
