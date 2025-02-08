@@ -1,7 +1,11 @@
 import React, { useContext, useState } from 'react';
 import { AuthContext } from '../../Provider/Authprovider';
-
+import { useLocation, useNavigate } from 'react-router-dom';
+import Swal from "sweetalert2";
 const SignInpage = () => {
+    const navigate = useNavigate()
+    const location = useLocation();
+    const from = location.state?.from?.pathname || "/";
     const [error,seterror] = useState("")
      const {signInuser} = useContext(AuthContext)
      const {handlegooglelogin} = useContext(AuthContext)
@@ -9,15 +13,64 @@ const SignInpage = () => {
         e.preventDefault();
         const email = e.target.email.value;
         const password = e.target.password.value;
-        console.log(email,password);
+        seterror("");
+        //console.log(email,password);
         signInuser(email,password)
         .then(result=>{
-            console.log(result.user);
+            // console.log(result.user);
+            // e.target.reset();
+            // navigate ('/')
+        
+
+            Swal.fire({
+              icon: "success",
+              title: "Login Successful",
+              text: "Welcome back!",
+              timer: 2000,
+              showConfirmButton: false,
+            }).then(() => {
+              navigate(from, { replace: true });
+            });
+    
+            e.target.reset(); 
+
         })
-        .catch(error=>{
-            seterror (error.message);
-        })
+        .catch((error) => {
+          setErrorMessage("Email or password is not correct");
+        });
     }
+
+   const Handlegooglelogin =()=>{
+    handlegooglelogin()
+    .then(result=>{
+      // console.log(result);
+      // navigate('/');
+
+      Swal.fire({
+        icon: "success",
+        title: "Login Successful",
+        text: "Welcome back!",
+        timer: 2000,
+        showConfirmButton: false,
+      })
+      .then(() => {
+        navigate(from, { replace: true });
+      });
+
+    })
+    //.catch(error=>console.log(error.message));
+    .catch((error) => {
+      Swal.fire({
+        icon: "error",
+        title: "Login Failed",
+        text: "An error occurred during Google login.",
+        timer: 2000,
+        showConfirmButton: false,
+      });
+    });
+   }
+  
+
     return (
         <div className="hero min-h-screen bg-gradient-to-br from-gray-900 via-gray-800 to-black flex justify-center items-center">
         <div className="hero-content flex-col lg:flex-row-reverse w-full max-w-lg p-6">
@@ -55,7 +108,7 @@ const SignInpage = () => {
               </div>
             </form>
            
-            <button onClick={handlegooglelogin} className='btn btn-primary'>Log In With Google</button>
+            <button onClick={Handlegooglelogin} className='btn btn-primary'>Log In With Google</button>
             {
                 error&&<p className='mt-2 text-red-500 font-bold text-center'>{error.split("/")[1].slice(0,18)}</p>
             }
