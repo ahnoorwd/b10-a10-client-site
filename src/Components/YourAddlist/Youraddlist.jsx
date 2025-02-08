@@ -3,7 +3,7 @@ import { FaEdit, FaEye, FaTrash } from "react-icons/fa";
 import { Link, NavLink } from 'react-router-dom';
 import Swal from 'sweetalert2';
 
-const Youraddlist = ({equipment}) => {
+const Youraddlist = ({equipment,addingequipments,setaddequipments}) => {
     const {_id,coffeename,Chefname,Suppliername,tasteprofile,category,Details,PhotoURL} = equipment;
     const handledelete = _id =>{
         console.log(_id);
@@ -31,7 +31,9 @@ const Youraddlist = ({equipment}) => {
                 text: "Your item has been deleted.",
                 icon: "success"
               });
-                }
+              const remaining = addingequipments.filter(add=>add._id!==_id);
+              setaddequipments(remaining);
+            }
             })
             }
             

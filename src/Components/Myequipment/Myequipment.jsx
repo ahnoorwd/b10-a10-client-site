@@ -1,8 +1,9 @@
-import React from "react";
+import React, { useState } from "react";
 import { useLoaderData } from "react-router-dom";
 import Youraddlist from "../YourAddlist/Youraddlist";
 const Myequipment = () => {
-  const addingequipments = useLoaderData();
+  const loadedaddingequipments = useLoaderData();
+  const [addingequipments,setaddequipments] = useState(loadedaddingequipments)
   return (
     <div>
       <h1 className="text-3xl font-bold text-center py-2">Total added equipment form you {addingequipments.length} </h1>
@@ -12,6 +13,8 @@ const Myequipment = () => {
    {
        addingequipments.map(equipment=><Youraddlist key={equipment._id}
        equipment={equipment}
+       addingequipments ={addingequipments}
+       setaddequipments={setaddequipments}
        ></Youraddlist>) 
     }
 

@@ -195,7 +195,7 @@
 //   );
 // };
 
-// export default Allequipmentcard;
+// export default Allequipmentcard;  2 is start here and it's effective
 
 
 import React from 'react';
