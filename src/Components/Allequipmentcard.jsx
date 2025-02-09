@@ -199,6 +199,7 @@
 
 
 import React from 'react';
+import { Zoom } from "react-reveal";
 import { NavLink } from 'react-router-dom';
 
 const Allequipmentcard = ({ eqipment }) => {
@@ -236,14 +237,20 @@ const Allequipmentcard = ({ eqipment }) => {
               {/* Product Name */}
               <td className="p-3">
                 <div className="flex items-center gap-3">
-                  <img src={image} alt={item_name} className="w-12 h-12 rounded-md object-cover shadow-md" />
+                
+              
+               <Zoom>
+               <img src={image} alt={item_name} className="w-12 h-12 rounded-md object-cover shadow-md" />
+
+               </Zoom>
+                               
                   <div>
                     <div className="font-bold text-lg">{item_name}</div>
                     <div className="text-sm text-gray-500">Made In Bangladesh</div>
                   </div>
                 </div>
               </td>
-
+              
               {/* Category */}
               <td className="p-3">
                 <div className="flex items-center gap-2 bg-gray-200 px-2 py-1 rounded-lg">
@@ -299,3 +306,6 @@ const Allequipmentcard = ({ eqipment }) => {
 };
 
 export default Allequipmentcard;
+
+
+
