@@ -1,9 +1,13 @@
 import React from 'react';
 import { FaMedal, FaDumbbell, FaRunning } from "react-icons/fa";
+import { Link } from 'react-router-dom';
 const Category = () => {
     return (
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 p-6">
+        <div className=" grid grid-cols-1 md:grid-cols-3 gap-6 p-6">
       {/* Champions’ Corner */}
+      
+
+      <Link to='/fitnessandfun'>
       <div className="bg-gradient-to-r from-blue-500 to-green-400 p-6 rounded-xl shadow-lg">
         <FaMedal className="text-4xl text-white mb-4" />
         <h3 className="text-white text-2xl font-bold">Champions’ Corner</h3>
@@ -12,6 +16,7 @@ const Category = () => {
           others.
         </p>
       </div>
+      </Link>
 
       {/* Fitness & Fun */}
       <div className="bg-gradient-to-r from-purple-500 to-pink-400 p-6 rounded-xl shadow-lg">

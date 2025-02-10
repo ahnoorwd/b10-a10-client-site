@@ -21,6 +21,7 @@ import SignInpage from './Components/signinpage/SignInpage.jsx';
 import Signup from './Components/signup/Signup.jsx';
 import Authprovider from './Provider/Authprovider.jsx';
 import Privateroute from './Components/privateroute/Privateroute.jsx';
+import FitnessFun from './Components/fitness&fun/FitnessFun.jsx';
 
 const router = createBrowserRouter([
   {
@@ -104,6 +105,10 @@ const router = createBrowserRouter([
            const singleproduct = data.find(d=>d.id==params.id)
             return singleproduct
             }
+          },
+          {
+            path:'/fitnessandfun',
+            element:<FitnessFun></FitnessFun>
           }
     ]
   },

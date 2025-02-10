@@ -177,6 +177,7 @@ const Home = () => {
             </NavLink>
 
             <Category />
+          
         </div>
     );
 };
