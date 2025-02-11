@@ -22,6 +22,8 @@ import Signup from './Components/signup/Signup.jsx';
 import Authprovider from './Provider/Authprovider.jsx';
 import Privateroute from './Components/privateroute/Privateroute.jsx';
 import FitnessFun from './Components/fitness&fun/FitnessFun.jsx';
+import SportWithStrong from './Components/Sportswithstrong/SportWithStrong.jsx';
+import HealthyRoutine from './Components/HealthyRoutine/HealthyRoutine.jsx';
 
 const router = createBrowserRouter([
   {
@@ -109,6 +111,14 @@ const router = createBrowserRouter([
           {
             path:'/fitnessandfun',
             element:<FitnessFun></FitnessFun>
+          },
+          {
+            path:'/sportsandstrong',
+            element:<SportWithStrong></SportWithStrong>
+          },
+          {
+            path:'healthyoutine',
+            element:<HealthyRoutine></HealthyRoutine>
           }
     ]
   },
