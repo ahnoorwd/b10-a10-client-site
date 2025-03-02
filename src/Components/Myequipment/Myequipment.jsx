@@ -16,7 +16,7 @@ const Myequipment = () => {
        addingequipments ={addingequipments}
        setaddequipments={setaddequipments}
        ></Youraddlist>) 
-    }
+   }
 
    </div>
 

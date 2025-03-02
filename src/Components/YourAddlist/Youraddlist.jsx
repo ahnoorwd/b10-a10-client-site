@@ -99,11 +99,14 @@
 
 
 
+
+
+
+
 import React from 'react';
 import { FaEdit, FaEye, FaTrash } from "react-icons/fa";
 import { Link } from 'react-router-dom';
 import Swal from 'sweetalert2';
-import { Tooltip } from 'react-tooltip';
 
 const Youraddlist = ({ equipment, addingequipments, setaddequipments }) => {
     const { _id, coffeename, Chefname, Suppliername, tasteprofile, category, PhotoURL } = equipment;
@@ -136,56 +139,48 @@ const Youraddlist = ({ equipment, addingequipments, setaddequipments }) => {
                     });
             }
         });
-    }
+    };
 
     return (
-        <div className="card card-side bg-gradient-to-r from-teal-100 to-white shadow-2xl p-6 rounded-lg hover:shadow-3xl transition duration-300 ease-in-out">
-            <div className="p-5 flex items-center justify-between w-full">
-                <div className="flex gap-4 items-center">
-                    <img
-                        src={PhotoURL}
-                        alt="Equipment"
-                        className="w-36 h-36 rounded-lg object-cover"
-                    />
-                    <div>
-                        <h3 className="text-lg font-bold">{coffeename}</h3>
-                        <p className="text-gray-600"><span className="font-semibold">Supplier Name:</span> {Suppliername}</p>
-                        <p className="text-gray-600"><span className="font-semibold">Chef Name:</span> {Chefname}</p>
-                        <p className="text-gray-600"><span className="font-semibold">Taste Profile:</span> {tasteprofile}</p>
-                        <p className="text-gray-600"><span className="font-semibold">Category:</span> {category}</p>
-                    </div>
+        <div className="bg-gradient-to-r from-teal-100 to-white shadow-2xl p-6 rounded-lg hover:shadow-3xl transition duration-300 ease-in-out">
+            <div className="flex flex-col sm:flex-row items-center sm:items-start gap-6">
+                
+                {/* Full-width image on small screens */}
+                <img
+                    src={PhotoURL}
+                    alt="Equipment"
+                    className="w-full sm:w-36 h-48 sm:h-36 rounded-lg object-cover"
+                />
+
+                {/* Content Section */}
+                <div className="flex-1 text-center sm:text-left">
+                    <h3 className="text-lg font-bold">{coffeename}</h3>
+                    <p className="text-gray-600"><span className="font-semibold">Supplier Name:</span> {Suppliername}</p>
+                    <p className="text-gray-600"><span className="font-semibold">Chef Name:</span> {Chefname}</p>
+                    <p className="text-gray-600"><span className="font-semibold">Taste Profile:</span> {tasteprofile}</p>
+                    <p className="text-gray-600"><span className="font-semibold">Category:</span> {category}</p>
                 </div>
 
-                {/* Action Buttons with Tooltips */}
-                <div className="flex flex-col gap-2">
-                    <Link to={`/updatepage/${_id}`}>
-                        <button className="btn btn-primary flex items-center gap-2" data-tooltip-id="edit-tooltip">
+                {/* Buttons Section */}
+                <div className="flex sm:flex-col gap-2 w-full sm:w-auto">
+                    <Link to={`/updatepage/${_id}`} className="w-full sm:w-auto" title="Update">
+                        <button className="btn btn-primary flex items-center gap-2 min-w-[120px] md:w-full">
                             <FaEdit />
-                            Update info
+                            Update
                         </button>
                     </Link>
-                    <Tooltip id="edit-tooltip" place="top" effect="solid">
-                        Edit this item
-                    </Tooltip>
 
-                    <Link to={`/viewyouraddlist/${_id}`}>
-                        <button className="btn bg-pink-500 text-white flex items-center gap-2" data-tooltip-id="view-tooltip">
+                    <Link to={`/viewyouraddlist/${_id}`} className="w-full sm:w-auto" title="View">
+                        <button className="btn bg-pink-500 text-white flex items-center gap-2 min-w-[120px] md:w-full">
                             <FaEye />
-                            View Details
+                            View
                         </button>
                     </Link>
-                    <Tooltip id="view-tooltip" place="top" effect="solid">
-                        View more details
-                    </Tooltip>
 
-                    <button onClick={() => handledelete(_id)}
-                        className="btn bg-red-500 text-white flex items-center gap-2" data-tooltip-id="delete-tooltip">
+                    <button onClick={() => handledelete(_id)} className="btn bg-red-500 text-white flex items-center gap-2 min-w-[120px] md:w-full" title="Delete">
                         <FaTrash />
                         Delete
                     </button>
-                    <Tooltip id="delete-tooltip" place="top" effect="solid">
-                        Delete this item
-                    </Tooltip>
                 </div>
             </div>
         </div>
@@ -193,3 +188,7 @@ const Youraddlist = ({ equipment, addingequipments, setaddequipments }) => {
 };
 
 export default Youraddlist;
+
+
+
+

@@ -24,6 +24,7 @@ import Privateroute from './Components/privateroute/Privateroute.jsx';
 import FitnessFun from './Components/fitness&fun/FitnessFun.jsx';
 import SportWithStrong from './Components/Sportswithstrong/SportWithStrong.jsx';
 import HealthyRoutine from './Components/HealthyRoutine/HealthyRoutine.jsx';
+import ErrorPage from './Components/errorpage/ErrorPage .jsx';
 
 const router = createBrowserRouter([
   {
@@ -119,6 +120,10 @@ const router = createBrowserRouter([
           {
             path:'healthyoutine',
             element:<HealthyRoutine></HealthyRoutine>
+          },
+          {
+            path:'/*',
+            element:<ErrorPage></ErrorPage>
           }
     ]
   },
