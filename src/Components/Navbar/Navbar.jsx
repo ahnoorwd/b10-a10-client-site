@@ -469,6 +469,7 @@
 import React, { useContext, useState } from 'react';
 import { NavLink } from 'react-router-dom';
 import { AuthContext } from '../../Provider/Authprovider';
+import logoimg from "../../assets/spors's logo.png"
 import { FaBars, FaTimes, FaSignOutAlt, FaUserPlus, FaSignInAlt } from "react-icons/fa";
 
 const Navbar = () => {
@@ -482,12 +483,14 @@ const Navbar = () => {
     };
 
     return (
-        <nav className='bg-gradient-to-r from-blue-950 to-purple-900 text-white p-4 shadow-2xl'>
+        <nav className='bg-gradient-to-r  from-blue-950 to-purple-900 text-white p-4 shadow-2xl  '>
             {/* Small devices layout */}
             <div className='flex justify-between items-center md:hidden'>
                 <div className='flex items-center gap-2'>
-                    <h1 className="text-xl font-bold tracking-wide text-white">Logo Img</h1>
-                    <span className='text-lg font-semibold text-gray-200'>A Sports Store</span>
+                    <h1 className="text-xl font-bold tracking-wide text-white">
+                        <img src={logoimg}  className="w-10 h-10 rounded-lg object-contain" alt="" />
+                    </h1>
+                    <span className='text-lg font-semibold  text-gray-200'>A  Online Sports Store</span>
                 </div>
                 <button 
                     onClick={() => setMenuOpen(!menuOpen)} 
@@ -588,8 +591,10 @@ const Navbar = () => {
             {/* Medium and Larger Devices Layout */}
             <div className='hidden md:flex flex-col items-center space-y-4'>
                 <div className='flex flex-col items-center'>
-                    <h1 className="text-2xl font-bold tracking-wide text-white">Logo Img</h1>
-                    <span className='text-lg font-semibold text-gray-300'>A Sports Store</span>
+                    <h1 className="text-2xl font-bold tracking-wide text-white">
+                        <img src={logoimg}  className="w-20 h-20 rounded-md object-contain" alt="logo img" />
+                    </h1>
+                    <span className='text-lg font-semibold mt-2 text-gray-300'>A Online Sports Store</span>
                 </div>
                 
                 <div className='flex gap-6 mt-4 text-lg font-medium'>

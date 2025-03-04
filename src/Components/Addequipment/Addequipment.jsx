@@ -46,44 +46,44 @@ const Addequipment = () => {
 
   }
     return (
-        <div className="flex justify-center items-center min-h-screen bg-gray-100">
-        <div className="bg-gradient-to-r from-purple-500 to-pink-500 p-8 rounded-lg shadow-lg w-full max-w-3xl">
+        <div className="flex  justify-center items-center min-h-screen bg-gray-100">
+        <div className="bg-gradient-to-r mt-4 from-purple-500 to-pink-500 p-8 rounded-lg shadow-lg w-full max-w-3xl">
           <h2 className="text-white text-2xl font-bold text-center">Add New Equipment</h2>
           <p className="text-white text-center mb-6">
-            Fill in the details below to add a new coffee to the list.
+            Fill in the details below to add a new product to the list.
           </p>
           <form onSubmit={handleaddequipment}
           className="grid grid-cols-1 md:grid-cols-2 gap-4">
             <div>
-              <label className="text-white">Name</label>
-              <input type="text" name='coffeename' placeholder="Coffee name" className="input input-bordered w-full" />
+              <label className="text-white">Item Name</label>
+              <input type="text" name='coffeename' placeholder="Product name" className="input input-bordered w-full" />
             </div>
             <div>
-              <label className="text-white">Chef</label>
-              <input type="text" name='Chefname' placeholder="Chef name" className="input input-bordered w-full" />
+              <label className="text-white">Category Name</label>
+              <input type="text" name='Chefname' placeholder="Product category" className="input input-bordered w-full" />
             </div>
             <div>
-              <label className="text-white">Supplier-Name</label>
-              <input type="text" name='Suppliername' placeholder="Supplier name" className="input input-bordered w-full" />
+              <label className="text-white">Company-Name</label>
+              <input type="text" name='Suppliername' placeholder="company name" className="input input-bordered w-full" />
             </div>
             <div>
-              <label className="text-white">Taste</label>
-              <input type="text" name='tasteprofile' placeholder="Taste profile" className="input input-bordered w-full" />
+              <label className="text-white">Processing Time</label>
+              <input type="text" name='tasteprofile' placeholder="Delivery time" className="input input-bordered w-full" />
             </div>
             <div>
-              <label className="text-white">Category</label>
-              <input type="text" name='category' placeholder="Coffee category" className="input input-bordered w-full" />
+              <label className="text-white">Customization Details</label>
+              <input type="text" name='category' placeholder="grip,hitpaper etc" className="input input-bordered w-full" />
             </div>
             <div>
-              <label className="text-white">Details</label>
-              <input type="text" name='Details' placeholder="Coffee details" className="input input-bordered w-full" />
+              <label className="text-white">Description</label>
+              <input type="text" name='Details' placeholder="Abbout The Product" className="input input-bordered w-full" />
             </div>
             <div className="md:col-span-2">
-              <label className="text-white">Photo URL</label>
+              <label className="text-white">Product Image URL</label>
               <input type="text" name='PhotoURL' placeholder="Enter photo URL" className="input input-bordered w-full" />
             </div>
             <div className="md:col-span-2 flex justify-center">
-              <button className="btn bg-purple-700 text-white w-full">Add Equipment</button>
+              <button className="btn bg-purple-700 text-white w-full">Add New  Equipment</button>
             </div>
           </form>
         </div>
